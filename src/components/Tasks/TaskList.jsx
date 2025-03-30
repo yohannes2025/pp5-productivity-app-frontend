@@ -1,23 +1,30 @@
 // Tasks/TaskList.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Fetch tasks from the server and update the state
+    const fetchTasks = async () => {
+      try {
+        const authToken = localStorage.getItem("authToken");
+        const response = await axios.get("/api/tasks", {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        });
+        setTasks(response.data);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+        // Display an error message to the user
+        alert("Failed to fetch tasks. Please try again later.");
+      }
+    };
+
     fetchTasks();
   }, []);
-
-  const fetchTasks = () => {
-    // Add logic to fetch tasks from the server
-    setTasks([
-      { id: 1, title: "Task 1", description: "This is task 1" },
-      { id: 2, title: "Task 2", description: "This is task 2" },
-      { id: 3, title: "Task 3", description: "This is task 3" },
-    ]);
-  };
 
   return (
     <div>
@@ -25,7 +32,11 @@ function TaskList() {
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>
-            <Link to={`/tasks/${task.id}`}>{task.title}</Link>
+            <Link to={`/tasks/${task.id}`}>
+              <h3>{task.title}</h3>
+            </Link>
+            <p>{task.description}</p>
+            <p>Status: {task.status}</p>
           </li>
         ))}
       </ul>

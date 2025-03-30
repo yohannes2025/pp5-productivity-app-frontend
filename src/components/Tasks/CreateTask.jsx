@@ -1,19 +1,39 @@
-// Tasks/CreateTask.jsx
 import React, { useState } from "react";
+import axios from "axios";
 
 function CreateTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleCreateTask = async (e) => {
     e.preventDefault();
-    // Add logic to create a new task
+    try {
+      const authToken = localStorage.getItem("authToken");
+      await axios.post(
+        "/api/tasks",
+        { title, description },
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      );
+      // Clear the form fields
+      setTitle("");
+      setDescription("");
+      // Display a success message to the user
+      alert("Task created successfully!");
+    } catch (error) {
+      console.error("Error creating task:", error);
+      // Display an error message to the user
+      alert("Failed to create task. Please try again later.");
+    }
   };
 
   return (
     <div>
       <h2>Create Task</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCreateTask}>
         <label>
           Title:
           <input
