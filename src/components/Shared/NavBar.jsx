@@ -117,42 +117,81 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 function NavBar() {
   return (
-    <Navbar expand="md" fixed="top" className="bg-body-tertiary NavBar">
+    <Navbar expand="md" fixed="top" className={styles.NavBar}>
       <Container>
-        {/* Left-aligned Brand */}
-        <Navbar.Brand href="#">
-          <img src="productivity.ico" alt="logo" />
-          Productivity
-        </Navbar.Brand>
-
+        <NavLink
+          exact
+          to="/"
+          className={styles.NavLink}
+          activeClassName={styles.active}
+        >
+          {/* Left-aligned Brand */}
+          <Navbar.Brand href="#">
+            <img src="productivity.ico" alt="logo" height="45" />
+            Productivity
+          </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="navbarScroll" />
-
         <Navbar.Collapse id="navbarScroll">
           {/* Push navigation items to the right */}
           <Nav className="ms-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link href="#login">
+            <NavLink
+              to="/login"
+              className={styles.NavLink}
+              activeClassName={styles.active}
+            >
               <i class="fa-solid fa-right-to-bracket"></i>Login
-            </Nav.Link>
-            <Nav.Link href="#register">
+            </NavLink>
+            <NavLink
+              to="/register"
+              className={styles.NavLink}
+              activeClassName={styles.active}
+            >
               <i class="fa-solid fa-registered"></i>Register
-            </Nav.Link>
-            <Nav.Link href="#register">
+            </NavLink>
+            <NavLink
+              to="/profile"
+              className={styles.NavLink}
+              activeClassName={styles.active}
+            >
               <i class="fa-solid fa-user"></i>Profile
-            </Nav.Link>
+            </NavLink>
 
-            <NavDropdown title="Tasks" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#create-task">
-                <i class="fa-solid fa-plus"></i>Create Task
+            <NavDropdown
+              title={
+                <span className={styles.NavLink}>
+                  <i className="fa-solid fa-check"></i> Tasks
+                </span>
+              }
+              id="navbarScrollingDropdown"
+              className={styles.NavDropdown}
+            >
+              <NavDropdown.Item
+                as={NavLink}
+                to="/createtask"
+                activeClassName={styles.active}
+              >
+                <i className="fa-solid fa-plus"></i> Create Task
               </NavDropdown.Item>
-              <NavDropdown.Item href="#task-list">
-                <i class="fa-solid fa-list-check"></i>Task List
+              <NavDropdown.Item
+                as={NavLink}
+                to="/tasklist"
+                activeClassName={styles.active}
+              >
+                <i className="fa-solid fa-list-check"></i> Task List
               </NavDropdown.Item>
-              <NavDropdown.Item href="#task-detail">
-                <i class="fa-solid fa-circle-info"></i>Task Detail
+              <NavDropdown.Item
+                as={NavLink}
+                to="/taskdetail"
+                activeClassName={styles.active}
+              >
+                <i className="fa-solid fa-circle-info"></i> Task Detail
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

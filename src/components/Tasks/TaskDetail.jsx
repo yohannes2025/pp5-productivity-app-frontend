@@ -203,7 +203,7 @@
 
 // export default TaskDetail;  // Exporting the combined component
 
-// Tasks/TaskDetail.jsx
+// src/componets/Tasks/TaskDetail.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';

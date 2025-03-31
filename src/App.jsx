@@ -1,38 +1,43 @@
 // App.jsx
+
+// import Login from "./components/Auth/Login";
+// import Register from "./components/Auth/Register";
+// import ProfilePage from "./components/Profile/ProfilePage";
+// import TaskList from "./components/Tasks/TaskList";
+// import CreateTask from "./components/Tasks/CreateTask";
+// import TaskDetail from "./components/Tasks/TaskDetail";
+import SearchBar from "./components/Shared/SearchBar";
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Change 'Switch' to 'Routes'
+import Home from "./components/Auth/Home"
 import NavBar from "./components/Shared/NavBar";
-import Login from "./components/Auth/Login";
-import Register from "./components/Auth/Register";
-import ProfilePage from "./components/Profile/ProfilePage";
-import TaskList from "./components/Tasks/TaskList";
-import CreateTask from "./components/Tasks/CreateTask";
-import TaskDetail from "./components/Tasks/TaskDetail";
 import styles from "./App.module.css";
+import Container from "react-bootstrap/Container";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-         {/* <Login />
-         <Register />
-         <ProfilePage />
-         <TaskList />
-         <CreateTask />
-         <TaskDetail />   */}
-                 
-        {/* <Routes>
-          {" "}          
-          <Route path="/login" element={<Login />} /> {/* Use element prop
-          <Route path="/register" element={<Register />} /> */}
-          {/* <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/tasks" element={<TaskList />} />{" "} 
-          <Route path="/tasks/create" element={<CreateTask />} /> 
-          <Route path="/tasks/:id" element={<TaskDetail />} /> 
-        </Routes>   */}
-      </div>
-    </Router>
+    <div className="App">
+      {/* <NavBar /> */}
+      <SearchBar />
+      {/* <Home />  */}
+      {/* <Login />
+      <Register />
+      <ProfilePage />
+      <TaskList />
+      <CreateTask />
+      <TaskDetail />   */}
+      {/* <Container className={styles.Main}>
+        <Routes>
+          <Route exact path="/" element={<h1>Home page</h1>} />
+          <Route exact path="/login" element={<h1>Login</h1>} />
+          <Route exact path="/register" element={<h1>Register</h1>} />
+          <Route exact path="/profile" element={<h1>Profile</h1>} />
+          <Route exact path="/createtask" element={<h1>Create Task</h1>} />
+          <Route exact path="/tasklist" element={<h1>Task List</h1>} />
+          <Route exact path="/taskdetail" element={<h1>Task Detail</h1>} />
+        </Routes>
+      </Container> */}
+    </div>
   );
 }
 
@@ -304,3 +309,37 @@ export default App;
 // }
 
 // export default App;
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+//  {
+//    /* <Login />
+//           <Register />
+//           <ProfilePage />
+//           <TaskList />
+//           <CreateTask />
+//           <TaskDetail />   */
+//  }
+
+//  {
+//    /* <Routes>
+//             {" "}          
+//             <Route path="/login" element={<Login />} /> {/* Use element prop
+//             <Route path="/register" element={<Register />} /> */
+//  }
+//  {
+//    /* <Route path="/profile" element={<ProfilePage />} />
+//             <Route path="/tasks" element={<TaskList />} />{" "} 
+//             <Route path="/tasks/create" element={<CreateTask />} /> 
+//             <Route path="/tasks/:id" element={<TaskDetail />} /> 
+//           </Routes>   */
+//  }
+
+ //////////////////////////////////////////////////////////////////////////////
