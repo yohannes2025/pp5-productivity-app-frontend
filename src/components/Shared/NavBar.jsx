@@ -110,7 +110,7 @@
 // export default NavBar;
 
 import React from "react";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
 // import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
 // import Navbar from "react-bootstrap/Navbar";
@@ -118,7 +118,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+//import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../../assets/logo.ico";
 
@@ -134,7 +134,7 @@ function NavBar() {
           activeClassName={styles.active}
         >
           {/* Left-aligned Brand */}
-          <Navbar.Brand href="#">
+          <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
             Productivity
           </Navbar.Brand>

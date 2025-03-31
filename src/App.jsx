@@ -40,6 +40,7 @@ function App() {
           <Route exact path="/createtask" element={<h1>Create Task</h1>} />
           <Route exact path="/tasklist" element={<h1>Task List</h1>} />
           <Route exact path="/taskdetail" element={<h1>Task Detail</h1>} />
+          <Route element={() => <p>Page not found !</p>} />
         </Routes>
       </Container>
     </div>
