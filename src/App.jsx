@@ -14,13 +14,15 @@ import styles from "./App.module.css";
 import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TaskFilter from "./components/Tasks/TaskFilter"
+import CommentSection from "./components/Comment/CommentSection.jsx";
 
 
 function App() {
   return (
     <div className="App">
-      {/* <NavBar /> */}
-      <SearchBar /> 
+      {/* <CommentSection /> */}
+      <NavBar />
+      {/* <SearchBar /> */}
       {/* <Home />   */}
       {/* <Login />
       <Register />
@@ -29,7 +31,7 @@ function App() {
       <CreateTask />
       <TaskDetail />   
       <TaskFilter /> */}
-      {/* <Container className={styles.Main}>
+      <Container className={styles.Main}>
         <Routes>
           <Route exact path="/" element={<h1>Home page</h1>} />
           <Route exact path="/login" element={<h1>Login</h1>} />
@@ -39,7 +41,7 @@ function App() {
           <Route exact path="/tasklist" element={<h1>Task List</h1>} />
           <Route exact path="/taskdetail" element={<h1>Task Detail</h1>} />
         </Routes>
-      </Container> */}
+      </Container>
     </div>
   );
 }
