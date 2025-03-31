@@ -13,19 +13,22 @@ import NavBar from "./components/Shared/NavBar";
 import styles from "./App.module.css";
 import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TaskFilter from "./components/Tasks/TaskFilter"
+
 
 function App() {
   return (
     <div className="App">
       {/* <NavBar /> */}
-      <SearchBar />
-      {/* <Home />  */}
+      <SearchBar /> 
+      {/* <Home />   */}
       {/* <Login />
       <Register />
       <ProfilePage />
       <TaskList />
       <CreateTask />
-      <TaskDetail />   */}
+      <TaskDetail />   
+      <TaskFilter /> */}
       {/* <Container className={styles.Main}>
         <Routes>
           <Route exact path="/" element={<h1>Home page</h1>} />
